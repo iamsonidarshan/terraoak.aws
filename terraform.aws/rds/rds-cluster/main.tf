@@ -127,6 +127,7 @@ resource "aws_secretsmanager_secret_policy" "sac_secrets_manager_policy" {
   secret_arn = aws_secretsmanager_secret.sac_secrets_manager.arn
 
   policy = <<POLICY
+  # oak9: Secrets policy grants broad access to principals using * (wildcards)
   # oak9: Secrets policy allows any action using * (wildcards)
 {
   "Version": "2012-10-17",
