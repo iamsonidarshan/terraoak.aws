@@ -7,6 +7,7 @@ resource "aws_dynamodb_table" "dynamo_db" {
   hash_key       = "UserId"
   range_key      = "GameTitle"
   read_capacity  = 1
+  # oak9: Set Dynamo DB read capacity to a higher threshold
   write_capacity = 1
   # oak9: Set DynamoDB write capacity to a higher threshold
 
