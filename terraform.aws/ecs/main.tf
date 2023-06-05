@@ -6,6 +6,7 @@ resource "aws_ecs_cluster" "sac_ecs_cluster" {
 }
 
 resource "aws_ecs_service" "sac_ecs_service" {
+  # oak9: Define a security group for ECS Service
   name            = "sac-testing-ecs-service"
   cluster         = aws_ecs_cluster.sac_ecs_cluster.arn
   task_definition = aws_ecs_task_definition.sac_ecs_task_definition.arn
@@ -77,6 +78,7 @@ resource "aws_security_group" "sac_ecs_security_group" {
     to_port          = 443
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
+    # oak9: Explicitly define source IP addresses for ingress rules
     ipv6_cidr_blocks = ["::/0"]
   }
 
