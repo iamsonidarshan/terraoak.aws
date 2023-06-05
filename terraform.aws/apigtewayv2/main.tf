@@ -30,7 +30,7 @@ resource "aws_apigatewayv2_integration" "sac_apigwv2_integration" {
   api_id           = aws_apigatewayv2_api.sac_apigwv2_api.id
   integration_type = "HTTP_PROXY"
   integration_method = "PATCH"
-  connection_type = "INTERNET"
+  connection_type = "vpc_link"
   integration_uri = aws_lb_listener.elbv2_listener.arn
 }
 
@@ -70,7 +70,7 @@ resource "aws_lb" "elbv2_sac" {
   load_balancer_type = "application"
   drop_invalid_header_fields = true
   desync_mitigation_mode = "monitor"
-  internal = false
+  internal = true
   subnets = [aws_subnet.apigwv2_subnet.id, aws_subnet.apigwv2_subnet_2.id]  
 
 }
