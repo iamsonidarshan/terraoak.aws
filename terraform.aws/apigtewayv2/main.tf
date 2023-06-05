@@ -183,6 +183,7 @@ data "aws_ami" "ubuntu" {
 # IAM
 # ---------------------------------------------------------------------
 resource "aws_iam_role" "ec2_instance_role_default" {
+  # oak9: Define asset inventory tags
   name = "ec2-instance-role-default"
   path = "/"
 
