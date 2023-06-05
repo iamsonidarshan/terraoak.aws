@@ -2,6 +2,7 @@
 # Elasticache
 # ---------------------------------------------------------------------
 resource "aws_elasticache_cluster" "sac_memcached_cluster" {
+  # oak9: Define a security group for ElastiCache Cluster
   cluster_id           = "sac-testing-memcached-cluster"
   engine               = "memcached"
   node_type            = "cache.t3.small"
