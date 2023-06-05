@@ -60,6 +60,7 @@ resource "aws_iam_group_policy" "sac_iam_group_policy" {
   group = aws_iam_group.sac_iam_group.name
 
   policy = jsonencode({
+    # oak9: Explicitly define resources in group policies
     # oak9: Avoid using wildcards ['*'] in IAM actions
     Version = "2012-10-17"
     Statement = [
