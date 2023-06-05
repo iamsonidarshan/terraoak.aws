@@ -30,7 +30,7 @@ resource "aws_apigatewayv2_integration" "sac_apigwv2_integration" {
   api_id           = aws_apigatewayv2_api.sac_apigwv2_api.id
   integration_type = "HTTP_PROXY"
   integration_method = "PATCH"
-  connection_type = "INTERNET"
+  connection_type = "vpc_link"
   integration_uri = aws_lb_listener.elbv2_listener.arn
 }
 
