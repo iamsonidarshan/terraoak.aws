@@ -88,6 +88,7 @@ resource "aws_security_group" "ec2_instance_security_group_default" {
     to_port          = 443
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
+    # oak9: Explicitly define source IP addresses for ingress rules
     ipv6_cidr_blocks = ["::/0"]
   }
 
