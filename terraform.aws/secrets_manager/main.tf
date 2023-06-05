@@ -2,6 +2,7 @@
 # SecretsManager
 # ---------------------------------------------------------------------
 resource "aws_secretsmanager_secret" "sac_secrets_manager_insecure" {
+  # oak9: Define asset inventory tags
   name                    = "sac-testing-secrets-manager-insecure"
   description             = "Default config2"
   recovery_window_in_days = 10 
