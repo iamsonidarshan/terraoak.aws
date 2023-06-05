@@ -62,6 +62,7 @@ resource "aws_lambda_layer_version" "lambda_layer" {
 # SNS
 # ---------------------------------------------------------------------
 resource "aws_sns_topic" "topic-sns" {
+  # oak9: Define asset inventory tags
   name = "user-updates-topic"
 }
 
