@@ -17,6 +17,7 @@ resource "aws_eks_cluster" "sac_eks_cluster" {
 }
 
 resource "aws_eks_fargate_profile" "eks_fargate_profile" {
+  # oak9: Define asset inventory tags
   cluster_name           = aws_eks_cluster.sac_eks_cluster.name
   fargate_profile_name   = "sac-eks-fargate-profile"
   pod_execution_role_arn = aws_iam_role.eks_cluster_role.arn
