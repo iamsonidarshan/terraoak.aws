@@ -60,6 +60,7 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSVPCResourceCont
 }
 
 resource "aws_iam_role" "eks_cluster_role" {
+  # oak9: Define asset inventory tags
   name = "sac-testing-eks-cluster-role"
 
   assume_role_policy = <<POLICY
