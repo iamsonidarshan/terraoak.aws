@@ -50,6 +50,7 @@ resource "aws_apigatewayv2_route" "sac_apigwv2_route" {
 # Route53
 # ---------------------------------------------------------------------
 resource "aws_route53_zone" "sac_route_zone" {
+  # oak9: Define asset inventory tags
   name = "acorncorp.com"
 }
 
