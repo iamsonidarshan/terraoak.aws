@@ -118,6 +118,7 @@ resource "aws_vpc" "main" {
 # IAM
 # ---------------------------------------------------------------------
 resource "aws_iam_role" "lambda_role" {
+    # oak9: Define asset inventory tags
     name = "lambda_role"
     assume_role_policy = <<EOF
 {
