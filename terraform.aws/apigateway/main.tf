@@ -2,6 +2,7 @@
 # ApiGateway
 # ---------------------------------------------------------------------
 resource "aws_api_gateway_account" "sac_api_gateway_account" {
+  # oak9: Configure API logs to be sent to AWS Cloudwatch
   
   depends_on = [
     aws_iam_role_policy_attachment.sac_api_gateway_policy_attachment,
