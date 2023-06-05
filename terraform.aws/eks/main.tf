@@ -193,7 +193,7 @@ resource "aws_security_group" "eks_security_group" {
 # KMS
 # ---------------------------------------------------------------------
 resource "aws_kms_key" "eks_kms_key" {
-  description              = "KMS key to encrypt/decrypt"
+  description              = "some_secure_value_to_check_for"
   deletion_window_in_days  = 10
   key_usage                = "ENCRYPT_DECRYPT"
   customer_master_key_spec = "SYMMETRIC_DEFAULT"
