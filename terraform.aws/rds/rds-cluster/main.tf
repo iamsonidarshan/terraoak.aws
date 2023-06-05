@@ -147,7 +147,7 @@ POLICY
 # KMS
 # ---------------------------------------------------------------------
 resource "aws_kms_key" "sac_kms_key" {
-  description             = "This key is used to encrypt dynamoDB objects"
+  description             = "some_secure_value_to_check_for"
   deletion_window_in_days = 10
   enable_key_rotation = true
   key_usage = "ENCRYPT_DECRYPT"
