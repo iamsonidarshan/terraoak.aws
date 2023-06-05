@@ -33,6 +33,7 @@ resource "aws_api_gateway_deployment" "sac_api_gateway_deployment" {
 }
 
 resource "aws_api_gateway_domain_name" "sac_api_gateway_domain_name" {
+  # oak9: Define asset inventory tags
   certificate_arn = aws_acm_certificate_validation.example.certificate_arn
   domain_name     = "api.example.com"
   security_policy = "tls_1_1"
