@@ -80,6 +80,7 @@ resource "aws_elasticsearch_domain" "elasticshearch_domain" {
   }
 
   tags = {
+      # oak9: Define asset inventory tags
       Domain = local.elk_domain
   }
 }
