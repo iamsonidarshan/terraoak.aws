@@ -2,6 +2,7 @@
 # Elasticache
 # ---------------------------------------------------------------------
 resource "aws_elasticache_cluster" "sac_memcached_cluster" {
+  # oak9: Define asset inventory tags
   cluster_id           = "sac-testing-memcached-cluster"
   engine               = "memcached"
   node_type            = "cache.t3.small"
