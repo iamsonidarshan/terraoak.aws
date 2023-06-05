@@ -75,7 +75,7 @@ resource "aws_lb" "elbv2_sac" {
 
 }
 
-resource "aws_lb_listener" "elbv2_listener" {
+resource "aws_lb_listener" "elbv2_listener" { # oak9:  should be set to any of https, tls
   load_balancer_arn = aws_lb.elbv2_sac.arn
   port = 99
 
