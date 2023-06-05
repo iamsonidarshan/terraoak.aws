@@ -30,7 +30,7 @@ resource "aws_dynamodb_table" "dynamo_db" {
   }
 
   point_in_time_recovery {
-    enabled = false
+    enabled = true
   }
   
   timeouts {
