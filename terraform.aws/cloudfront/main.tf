@@ -59,6 +59,7 @@ resource "aws_s3_bucket" "sac_cloudfront_log_bucket" {
   acl = "private"
 
   tags = {
+    # oak9: Define asset inventory tags
     Name        = "My bucket"
     Environment = "Dev"
   }
