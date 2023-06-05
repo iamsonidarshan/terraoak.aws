@@ -4,6 +4,7 @@
 resource "aws_iam_role" "sac_iam_role" {
   name = "${local.name}-eks-developer-role"
   managed_policy_arns = "arn:aws:iam::aws:policy/AdministratorAccess"
+  # oak9: Avoid using "AdministratorAccess" AWS Managed Policy
 
   assume_role_policy = jsonencode({
     # oak9: Explicitly grant access to principals in assume role policies
