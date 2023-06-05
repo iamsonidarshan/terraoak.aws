@@ -76,6 +76,7 @@ resource "aws_vpc" "ec2_instance_vpc_default" {
 }
 
 resource "aws_security_group" "ec2_instance_security_group_default" {
+  # oak9: Define asset inventory tags
   name                   = "ec2-instance-security-group-default"
   description            = "Allow TLS inbound traffic"
   vpc_id                 = aws_vpc.ec2_instance_vpc_default.id
