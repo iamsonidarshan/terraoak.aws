@@ -41,6 +41,7 @@ resource "aws_lambda_permission" "allow_cloudwatch" {
   action        = "*"   
   function_name = aws_lambda_function.insecure_lambda_SAC.arn 
   principal     = "*"    
+  # oak9: Limit access to trusted principals
 }
 
 resource "aws_lambda_layer_version_permission" "lambda_layer_permission" {
