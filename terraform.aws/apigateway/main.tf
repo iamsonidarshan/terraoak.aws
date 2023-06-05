@@ -165,6 +165,6 @@ resource "aws_lambda_function" "sac_api_gateway_lambda_function" {
   function_name = "sac-testing-apigw-lambda"
   role          = aws_iam_role.sac_api_gateway_role.arn
 
-  runtime = "nodejs12.x"
+  runtime = "nodejs14.x"
   handler = "index.test"
 }
