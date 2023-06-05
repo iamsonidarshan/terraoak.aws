@@ -15,7 +15,7 @@ resource "aws_db_instance" "sac_db_instance" {
   deletion_protection     = false
 
   engine_version          = "8.0"
-  iam_database_authentication_enabled = false
+  iam_database_authentication_enabled = true
   multi_az = false
   publicly_accessible     = true
   storage_encrypted = false
