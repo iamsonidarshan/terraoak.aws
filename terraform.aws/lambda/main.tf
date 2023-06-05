@@ -39,15 +39,19 @@ resource "aws_lambda_event_source_mapping" "example" {
 
 resource "aws_lambda_permission" "allow_cloudwatch" {
   action        = "*"   
+  # oak9: Define a specific action for Function access
   function_name = aws_lambda_function.insecure_lambda_SAC.arn 
   principal     = "*"    
+  # oak9: Limit access to trusted principals
 }
 
 resource "aws_lambda_layer_version_permission" "lambda_layer_permission" {
   layer_name     =  "arn:aws:lambda:us-east-2:709695003849:layer:lambda_layer_name"
   version_number = 4    
   principal      = "*"   
+  # oak9: Limit access to trusted principals
   action         = "*" 
+  # oak9: Define a specific action for Layer access
   statement_id   = "dev-account"    
 }
 

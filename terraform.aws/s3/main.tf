@@ -2,6 +2,7 @@
 # S3
 # ---------------------------------------------------------------------
 resource "aws_s3_bucket" "s3_bucket_sac" {
+  # oak9: Design S3 Object Ownership to use Bucket Owner Enforced instead of Bucket Owner Preferred to align with AWS best practices
   force_destroy       = false
   object_lock_enabled = false
 }
@@ -34,6 +35,8 @@ resource "aws_s3_bucket_cors_configuration" "s3_cors_config_sac" {
 resource "aws_s3_bucket_policy" "s3_bucket_policy_sac" {
   bucket = aws_s3_bucket.s3_bucket_sac.id
   policy = <<EOF
+  # oak9: Explicitly define allowed principals for S3 bucket instead of using wildcards ['*'] to restrict broad access
+  # oak9: Explicitly define S3 bucket actions instead of using wildcards ['*']
 {
 "Version": "2012-10-17",
 "Id": "PutObjPolicy",
@@ -55,10 +58,10 @@ EOF
 
 resource "aws_s3_bucket_public_access_block" "s3_public_access_block_sac" {
   bucket = aws_s3_bucket.s3_bucket_sac.id
-  block_public_acls       = false
-  block_public_policy     = false
-  ignore_public_acls      = false
-  restrict_public_buckets = false
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 resource "aws_s3_bucket_versioning" "s3_bucket_versioning_sac" {

@@ -61,10 +61,11 @@ resource "aws_api_gateway_method" "sac_api_gateway_method" {
   rest_api_id = aws_api_gateway_rest_api.sac_api_gateway_rest_api.id
   resource_id = aws_api_gateway_resource.sac_api_gateway.id
   http_method = "GET"
-  authorization = "NONE"
+  authorization = "NONE" # oak9: authorization should be set to any of aws_iam, custom, cognito_user_pools
 }
 
 resource "aws_api_gateway_rest_api" "sac_api_gateway_rest_api" {
+  # oak9: Define resource based policies
   name = "sac-testing-apigw-rest-api"   
 
   endpoint_configuration {
@@ -119,6 +120,7 @@ resource "aws_iam_role_policy" "sac_api_gateway_role_policy" {
   role = aws_iam_role.sac_api_gateway_role.id
 
   policy = <<EOF
+  # oak9: Explicitly define resources in roles
 {
     "Version": "2012-10-17",
     "Statement": [
