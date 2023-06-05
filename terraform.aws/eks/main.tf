@@ -177,6 +177,7 @@ resource "aws_route_table_association" "eks_route_table_association" {
 }
 
 resource "aws_security_group" "eks_security_group" {
+  # oak9: Define asset inventory tags
   name        = "eks-cluster-security-group"
   description = "Cluster communication with worker nodes"
   vpc_id      = aws_vpc.eks_vpc.id
