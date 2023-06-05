@@ -119,6 +119,7 @@ data "aws_iam_policy_document" "bucket_policy_document" {
 # WAFv2
 # ---------------------------------------------------------------------
 resource "aws_wafv2_web_acl" "sac_cloudfront_web_acl_" {
+  # oak9: Define a Rate limit rule
   name        = "sac-testing-web-acl"
   description = "Example of a managed rule."
   scope       = "REGIONAL"
