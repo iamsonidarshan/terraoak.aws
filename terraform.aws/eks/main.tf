@@ -80,6 +80,7 @@ POLICY
 }
 
 resource "aws_iam_role" "demo-node" {
+  # oak9: Define asset inventory tags
   name = "terraform-eks-demo-node"
 
   assume_role_policy = <<POLICY
