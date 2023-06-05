@@ -6,6 +6,7 @@ resource "aws_iam_role" "sac_iam_role" {
   managed_policy_arns = "arn:aws:iam::aws:policy/AdministratorAccess"
 
   assume_role_policy = jsonencode({
+    # oak9: Avoid using wildcards ['*'] in IAM actions
     Version = "2012-10-17"
     Statement = [
       {
