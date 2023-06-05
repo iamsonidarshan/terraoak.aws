@@ -18,6 +18,7 @@ resource "aws_db_instance" "sac_db_instance" {
   iam_database_authentication_enabled = false
   multi_az = false
   publicly_accessible     = true
+  # oak9: RDS Database Instance is publicly accessible
   storage_encrypted = false
 }
 
