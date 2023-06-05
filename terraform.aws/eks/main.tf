@@ -28,6 +28,7 @@ resource "aws_eks_fargate_profile" "eks_fargate_profile" {
 }
 
 resource "aws_eks_node_group" "eks_node_group" {
+  # oak9: Define asset inventory tags
   cluster_name    = aws_eks_cluster.sac_eks_cluster.name
   node_group_name = "eks-cluster-node-group"
   node_role_arn   = aws_iam_role.demo-node.arn
