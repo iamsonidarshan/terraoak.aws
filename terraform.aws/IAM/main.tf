@@ -19,6 +19,7 @@ resource "aws_iam_role" "sac_iam_role" {
   inline_policy {
     name = "eks-developer-access-policy"
     policy = jsonencode({
+      # oak9: Explicitly define resources in roles
       # oak9: Avoid using wildcards ['*'] in IAM actions
       Version = "2012-10-17"
       Statement = [
