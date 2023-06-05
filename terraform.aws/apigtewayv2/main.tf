@@ -17,6 +17,7 @@ resource "aws_apigatewayv2_api_mapping" "api" {
 }
 
   resource "aws_apigatewayv2_domain_name" "sac_apigwv2_domain" {
+  # oak9: Define asset inventory tags
   domain_name = "acorncorp.com"
 
   domain_name_configuration {
