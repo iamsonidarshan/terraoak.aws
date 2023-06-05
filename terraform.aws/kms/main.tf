@@ -2,6 +2,7 @@
 # KMS
 # ---------------------------------------------------------------------
 resource "aws_kms_key" "kms_key_sac" {
+  # oak9: Define asset inventory tags
   description              = "KMS key template"
   deletion_window_in_days  = 10
   customer_master_key_spec = "SYMMETRIC_DEFAULT"
