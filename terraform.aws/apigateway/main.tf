@@ -65,6 +65,7 @@ resource "aws_api_gateway_method" "sac_api_gateway_method" {
 }
 
 resource "aws_api_gateway_rest_api" "sac_api_gateway_rest_api" {
+  # oak9: Define asset inventory tags
   name = "sac-testing-apigw-rest-api"   
 
   endpoint_configuration {
