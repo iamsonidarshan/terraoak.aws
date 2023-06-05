@@ -2,6 +2,7 @@
 # RDS
 # ---------------------------------------------------------------------
 resource "aws_rds_cluster" "sac_rds_cluster" {
+  # oak9: Define asset inventory tags
   cluster_identifier      = "sac-testing-rds-cluster"
   database_name           = "sacrdsdatabase"
   engine                  = "aurora-mysql"
