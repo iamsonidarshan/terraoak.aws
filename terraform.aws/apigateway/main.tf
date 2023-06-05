@@ -39,6 +39,7 @@ resource "aws_api_gateway_domain_name" "sac_api_gateway_domain_name" {
 }
 
 resource "aws_api_gateway_api_key" "sac_api_gateway_key" {
+  # oak9: Define asset inventory tags
   name        = "sac-testing-apigw-key"
   description = "API key for SaC API Gateway"
   enabled     = true
