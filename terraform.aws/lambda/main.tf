@@ -111,6 +111,7 @@ resource "aws_subnet" "test-subnet" {
 }
 
 resource "aws_vpc" "main" {
+  # oak9: Define asset inventory tags
   cidr_block = "10.0.0.0/16"
 }
 
