@@ -38,7 +38,7 @@ resource "aws_elasticache_replication_group" "sac_replication_group_redis" {
   port                        = 6379
   multi_az_enabled = false
   automatic_failover_enabled  = true
-  at_rest_encryption_enabled = false
+  at_rest_encryption_enabled = true
   transit_encryption_enabled = false
 }
 
