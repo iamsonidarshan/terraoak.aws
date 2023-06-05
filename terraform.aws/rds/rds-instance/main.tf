@@ -18,7 +18,7 @@ resource "aws_db_instance" "sac_db_instance" {
   iam_database_authentication_enabled = false
   multi_az = false
   publicly_accessible     = true
-  storage_encrypted = false
+  storage_encrypted = true
 }
 
 resource "aws_db_proxy_default_target_group" "sac_proxy_target_group" {
