@@ -70,7 +70,7 @@ resource "aws_lb" "elbv2_sac" {
   load_balancer_type = "application"
   drop_invalid_header_fields = true
   desync_mitigation_mode = "monitor"
-  internal = false
+  internal = true
   subnets = [aws_subnet.apigwv2_subnet.id, aws_subnet.apigwv2_subnet_2.id]  
 
 }
