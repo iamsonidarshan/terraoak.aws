@@ -2,6 +2,7 @@
 # ApiGateway
 # ---------------------------------------------------------------------
 resource "aws_api_gateway_account" "sac_api_gateway_account" {
+  # oak9: Configure API logs to be sent to AWS Cloudwatch
   
   depends_on = [
     aws_iam_role_policy_attachment.sac_api_gateway_policy_attachment,
@@ -73,6 +74,7 @@ resource "aws_api_gateway_rest_api" "sac_api_gateway_rest_api" {
 }
 
 resource "aws_api_gateway_stage" "sac_api_gateway_stage" {
+  # oak9: Enable Access logs for API stages
   deployment_id         = aws_api_gateway_deployment.sac_api_gateway_deployment.id  
   rest_api_id           = aws_api_gateway_rest_api.sac_api_gateway_rest_api.id  
   stage_name            = "sac-testing-apigw-stage"   
