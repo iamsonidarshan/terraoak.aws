@@ -13,6 +13,7 @@ resource "aws_elasticache_cluster" "sac_memcached_cluster" {
 }
 
 resource "aws_elasticache_cluster" "sac_redis_cluster" {
+  # oak9: Configure the retention days of a snapshot
   cluster_id           = "sac-testing-redis-cluster"
   engine               = "redis"
   node_type            = "cache.t3.small"
