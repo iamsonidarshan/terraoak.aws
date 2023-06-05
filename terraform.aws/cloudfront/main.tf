@@ -2,6 +2,7 @@
 # CloudFront
 # ---------------------------------------------------------------------
 resource "aws_cloudfront_distribution" "sac_cloudfront_distribution" {
+    # oak9: Define asset inventory tags
     enabled = true
     aliases = ["www.acorncorp.com", "acorncorp.com"]
     web_acl_id = aws_wafv2_web_acl.sac_cloudfront_web_acl_.id
