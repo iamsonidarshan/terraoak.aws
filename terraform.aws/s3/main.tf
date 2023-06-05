@@ -2,6 +2,7 @@
 # S3
 # ---------------------------------------------------------------------
 resource "aws_s3_bucket" "s3_bucket_sac" {
+  # oak9: Design S3 Object Ownership to use Bucket Owner Enforced instead of Bucket Owner Preferred to align with AWS best practices
   force_destroy       = false
   object_lock_enabled = false
 }
