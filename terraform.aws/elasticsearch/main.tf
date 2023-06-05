@@ -11,7 +11,7 @@ resource "aws_elasticsearch_domain" "elasticshearch_domain" {
     log_type                 = "INDEX_SLOW_LOGS"
   }
   node_to_node_encryption {
-    enabled = false
+    enabled = true
   }
 
   cognito_options {
