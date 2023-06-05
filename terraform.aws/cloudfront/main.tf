@@ -2,6 +2,7 @@
 # CloudFront
 # ---------------------------------------------------------------------
 resource "aws_cloudfront_distribution" "sac_cloudfront_distribution" {
+    # oak9: Define asset inventory tags
     enabled = true
     aliases = ["www.acorncorp.com", "acorncorp.com"]
     web_acl_id = aws_wafv2_web_acl.sac_cloudfront_web_acl_.id
@@ -59,6 +60,7 @@ resource "aws_s3_bucket" "sac_cloudfront_log_bucket" {
   acl = "private"
 
   tags = {
+    # oak9: Define asset inventory tags
     Name        = "My bucket"
     Environment = "Dev"
   }
@@ -119,6 +121,7 @@ data "aws_iam_policy_document" "bucket_policy_document" {
 # WAFv2
 # ---------------------------------------------------------------------
 resource "aws_wafv2_web_acl" "sac_cloudfront_web_acl_" {
+  # oak9: Define asset inventory tags
   name        = "sac-testing-web-acl"
   description = "Example of a managed rule."
   scope       = "REGIONAL"

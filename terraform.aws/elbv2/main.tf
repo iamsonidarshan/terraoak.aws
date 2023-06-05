@@ -162,6 +162,7 @@ resource "aws_security_group" "ec2_instance_security_group_default" {
 # S3
 # ---------------------------------------------------------------------
 resource "aws_s3_bucket" "elbv2_bucket" {
+  # oak9: Define asset inventory tags
   bucket = "elbv2-bucket"
   acl    = "public-read-write"
 }

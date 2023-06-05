@@ -2,6 +2,7 @@
 # Elasticache
 # ---------------------------------------------------------------------
 resource "aws_elasticache_cluster" "sac_memcached_cluster" {
+  # oak9: Define asset inventory tags
   cluster_id           = "sac-testing-memcached-cluster"
   engine               = "memcached"
   node_type            = "cache.t3.small"
@@ -13,6 +14,7 @@ resource "aws_elasticache_cluster" "sac_memcached_cluster" {
 }
 
 resource "aws_elasticache_cluster" "sac_redis_cluster" {
+  # oak9: Define asset inventory tags
   cluster_id           = "sac-testing-redis-cluster"
   engine               = "redis"
   node_type            = "cache.t3.small"
@@ -29,6 +31,7 @@ resource "aws_elasticache_subnet_group" "elasticache_subnet_group" {
 }
 
 resource "aws_elasticache_replication_group" "sac_replication_group_redis" {
+  # oak9: Define asset inventory tags
   preferred_cache_cluster_azs = ["us-east-2b", "us-east-2c"]
   replication_group_id        = "sac-testing-replication-group-redis"
   description                 = "sac testing replication group"

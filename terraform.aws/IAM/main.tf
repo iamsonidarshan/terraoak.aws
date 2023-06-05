@@ -2,6 +2,7 @@
 # IAM
 # ---------------------------------------------------------------------
 resource "aws_iam_role" "sac_iam_role" {
+  # oak9: Define asset inventory tags
   name = "${local.name}-eks-developer-role"
   managed_policy_arns = "arn:aws:iam::aws:policy/AdministratorAccess"
 

@@ -2,6 +2,7 @@
 # SecurityGroup
 # ---------------------------------------------------------------------
 resource "aws_security_group" "sac_security_group" {
+  # oak9: Define asset inventory tags
   name                   = "sac-security-group"
   description            = "Allow TLS inbound traffic"
   vpc_id                 = aws_vpc.security_group_vpc.id
@@ -25,5 +26,6 @@ resource "aws_security_group" "sac_security_group" {
 # VPC
 # ---------------------------------------------------------------------
 resource "aws_vpc" "security_group_vpc" {
+  # oak9: Define asset inventory tags
   cidr_block = "10.0.0.0/16" 
 }

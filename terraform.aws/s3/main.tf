@@ -2,6 +2,7 @@
 # S3
 # ---------------------------------------------------------------------
 resource "aws_s3_bucket" "s3_bucket_sac" {
+  # oak9: Define asset inventory tags
   force_destroy       = false
   object_lock_enabled = false
 }

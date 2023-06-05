@@ -17,6 +17,7 @@ resource "aws_eks_cluster" "sac_eks_cluster" {
 }
 
 resource "aws_eks_fargate_profile" "eks_fargate_profile" {
+  # oak9: Define asset inventory tags
   cluster_name           = aws_eks_cluster.sac_eks_cluster.name
   fargate_profile_name   = "sac-eks-fargate-profile"
   pod_execution_role_arn = aws_iam_role.eks_cluster_role.arn
@@ -28,6 +29,7 @@ resource "aws_eks_fargate_profile" "eks_fargate_profile" {
 }
 
 resource "aws_eks_node_group" "eks_node_group" {
+  # oak9: Define asset inventory tags
   cluster_name    = aws_eks_cluster.sac_eks_cluster.name
   node_group_name = "eks-cluster-node-group"
   node_role_arn   = aws_iam_role.demo-node.arn
@@ -60,6 +62,7 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSVPCResourceCont
 }
 
 resource "aws_iam_role" "eks_cluster_role" {
+  # oak9: Define asset inventory tags
   name = "sac-testing-eks-cluster-role"
 
   assume_role_policy = <<POLICY
@@ -80,6 +83,7 @@ POLICY
 }
 
 resource "aws_iam_role" "demo-node" {
+  # oak9: Define asset inventory tags
   name = "terraform-eks-demo-node"
 
   assume_role_policy = <<POLICY
@@ -177,6 +181,7 @@ resource "aws_route_table_association" "eks_route_table_association" {
 }
 
 resource "aws_security_group" "eks_security_group" {
+  # oak9: Define asset inventory tags
   name        = "eks-cluster-security-group"
   description = "Cluster communication with worker nodes"
   vpc_id      = aws_vpc.eks_vpc.id
@@ -193,6 +198,7 @@ resource "aws_security_group" "eks_security_group" {
 # KMS
 # ---------------------------------------------------------------------
 resource "aws_kms_key" "eks_kms_key" {
+  # oak9: Define asset inventory tags
   description              = "KMS key to encrypt/decrypt"
   deletion_window_in_days  = 10
   key_usage                = "ENCRYPT_DECRYPT"

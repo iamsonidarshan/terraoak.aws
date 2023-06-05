@@ -33,12 +33,14 @@ resource "aws_api_gateway_deployment" "sac_api_gateway_deployment" {
 }
 
 resource "aws_api_gateway_domain_name" "sac_api_gateway_domain_name" {
+  # oak9: Define asset inventory tags
   certificate_arn = aws_acm_certificate_validation.example.certificate_arn
   domain_name     = "api.example.com"
   security_policy = "tls_1_1"
 }
 
 resource "aws_api_gateway_api_key" "sac_api_gateway_key" {
+  # oak9: Define asset inventory tags
   name        = "sac-testing-apigw-key"
   description = "API key for SaC API Gateway"
   enabled     = true
@@ -65,6 +67,7 @@ resource "aws_api_gateway_method" "sac_api_gateway_method" {
 }
 
 resource "aws_api_gateway_rest_api" "sac_api_gateway_rest_api" {
+  # oak9: Define asset inventory tags
   name = "sac-testing-apigw-rest-api"   
 
   endpoint_configuration {
@@ -73,6 +76,7 @@ resource "aws_api_gateway_rest_api" "sac_api_gateway_rest_api" {
 }
 
 resource "aws_api_gateway_stage" "sac_api_gateway_stage" {
+  # oak9: Define asset inventory tags
   deployment_id         = aws_api_gateway_deployment.sac_api_gateway_deployment.id  
   rest_api_id           = aws_api_gateway_rest_api.sac_api_gateway_rest_api.id  
   stage_name            = "sac-testing-apigw-stage"   
@@ -83,6 +87,7 @@ resource "aws_api_gateway_stage" "sac_api_gateway_stage" {
 }
 
 resource "aws_api_gateway_usage_plan" "sac_api_gateway_usage_plan" {
+  # oak9: Define asset inventory tags
   name         = "sac-testing-apigw-usage-plan" 
   
   api_stages {
@@ -95,6 +100,7 @@ resource "aws_api_gateway_usage_plan" "sac_api_gateway_usage_plan" {
 # IAM
 # ---------------------------------------------------------------------
 resource "aws_iam_role" "sac_api_gateway_role" {
+  # oak9: Define asset inventory tags
   name = "sac-testing-apigw-cloudwatch-role"
 
   assume_role_policy = <<EOF

@@ -2,10 +2,12 @@
 # ECS
 # ---------------------------------------------------------------------
 resource "aws_ecs_cluster" "sac_ecs_cluster" {
+  # oak9: Define asset inventory tags
   name = "sac-testing-ecs-cluster"
 }
 
 resource "aws_ecs_service" "sac_ecs_service" {
+  # oak9: Define asset inventory tags
   name            = "sac-testing-ecs-service"
   cluster         = aws_ecs_cluster.sac_ecs_cluster.arn
   task_definition = aws_ecs_task_definition.sac_ecs_task_definition.arn
@@ -13,6 +15,7 @@ resource "aws_ecs_service" "sac_ecs_service" {
 }
 
 resource "aws_ecs_task_definition" "sac_ecs_task_definition" {
+  # oak9: Define asset inventory tags
   
   family                   = "sac-ecs-task-def"
   container_definitions = jsonencode([{
@@ -62,10 +65,12 @@ resource "aws_subnet" "sac_ecs_subnet" {
 }
 
 resource "aws_vpc" "sac_ecs_vpc" {
+  # oak9: Define asset inventory tags
   cidr_block = "10.0.0.0/16" 
 }
 
 resource "aws_security_group" "sac_ecs_security_group" {
+  # oak9: Define asset inventory tags
   name                   = "sac-ecs-sec-group"
   description            = "Allow TLS inbound traffic"
   vpc_id                 = aws_vpc.sac_ecs_vpc.id
